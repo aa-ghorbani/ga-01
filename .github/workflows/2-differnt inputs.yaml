@@ -1,9 +1,7 @@
 name: 2 - different inputs
 
-on:
+on: 
     push:
-    schedule:
-        - cron: "*/5 * * * *"
     workflow_dispatch:
         inputs:
             MySQL:
@@ -12,7 +10,7 @@ on:
             PostgreSQL:
                 required: false
                 type: boolean
-
+                
 jobs: 
     fetch-data:
         runs-on: ubuntu-latest
