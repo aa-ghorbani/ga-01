@@ -1,7 +1,34 @@
-name: 4 - Fetch and send data to s3
+name: 2 - different inputs
 
+<<<<<<< HEAD
+on: 
+    workflow_dispatch:
+        inputs:
+            MySQL:
+                required: false
+                type: boolean
+            PostgreSQL:
+                required: false
+                type: boolean
+                
+jobs: 
+    fetch-data:
+        runs-on: ubuntu-latest
+        steps:
+          - name: MySQL fetch
+            if: ${{ github.event.inputs.MySQL == 'true' }}
+            run: echo "I will retrieve data from MySQL"
+    
+          - name: PostgreSQL fetch
+            if: ${{ github.event.inputs.PostgreSQL == 'true' }}
+            run: echo "I will retrieve data from PostgreSQL."
+    
+          - name: Done
+            run: echo "You did it 😎"
+=======
 on:
   workflow_dispatch:
+>>>>>>> c1b9c4830779bf72039e2b235e955c76e1f654cc
 
 jobs:
   fetch_data:
